@@ -31,7 +31,12 @@ replication:
 *after changing the config restart each mongod instance*  
 
 ## 3. Replica set initiation command
+simply connect to mongo shell from the primary server, and call the following.  
+it makes sure to communicate with other participants of the cluster, and make it to work together as one.
+
+```
 rs.initiate({_id : "rs0",members: [{ _id: 0, host: "rs0mongo01:27017" },{ _id: 1, host: "rs0mongo02:27017" },{ _id: 2, host: "rs0mongo03:27017" }]})
+```
 
 ## 4. Command to connect from shell
 mongosh --host rs0/rs0mongo01,rs0mongo02,rs0mongo03 testcollection
